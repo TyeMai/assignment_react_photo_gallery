@@ -26,3 +26,28 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.pictures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) ;
+  grid-template-rows:repeat(auto-fit, 1fr);
+  grid-column-ga: 20px;
+  grid-template-area:
+  ". p p p ."
+  ". p p p ."
+  ". p p p ."
+  ". p p p ."
+  ". p p p ."
+  ". p p p ."
+  ". p p p .";
+  grid-auto-flo: dense;
+  justify-item: center;
+
+}
+
+.pictureAndInfo{
+  grid-column-star: 2;
+  grid-column-en: 5;
+  grid-are: p;
+
+}

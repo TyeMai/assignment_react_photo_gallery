@@ -1,22 +1,49 @@
-import React from 'react';
-import PictureHelp from '../helpers/PictureHelp'
+import React, {Component} from 'react';
+//import PictureHelp from '../helpers/PictureHelp';
+import instagramData from "./photos";
+import Select from './Select';
+import Picture from './Picture'
+import NumPics from './NumPics'
+//import Page from './Page'
 
-const Pictures = (props) => {
-  //console.log(props)
-  const {InstagramData} = props
-  //console.log(InstagramData)
-  console.log("yay i made it to the right datat")
-  const Picture = InstagramData.map((InstagramDatum) => (
+import {
+  getFilters
+} from '../helpers/photoFuncs'
 
-    <PictureHelp link={InstagramDatum.link} description={InstagramDatum.caption} key={InstagramDatum.link}/>
-  ))
 
-return (
-  <div className='pictures'>
-    {Picture}
-  </div>
-)
+const instagramOptions = getFilters()
+const instaInfo = instagramData.data
 
+
+class Pictures extends Component {
+//console.log(instagramOptions)
+  constructor() {
+    super()
+    this.state= {
+      instagramOption: "All",
+      numMatches: "0",
+      page: 1
+    }
+  }
+
+  handleFilterChosen = (e) => {
+    this.setState({
+      instagramOption:e.target.value
+    })
+  }
+
+
+
+ render() {
+   const {instagramOption, page, numMatches } = this.state
+    return (
+      <div>
+        <Select options={instagramOptions}  value={instagramOption} handleFilterChosen={this.handleFilterChosen} />
+        <NumPics numMatches={numMatches} matchesFilter={numMatches} />
+        <Picture InstagramData={instaInfo} className="picture_main" page={page} filterSelected={instagramOption}/>
+
+      </div>
+    )
+ }
 }
-
 export default Pictures
