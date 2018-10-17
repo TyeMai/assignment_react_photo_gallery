@@ -23,3 +23,47 @@ export function filterPics(filter) {
   })
  }
 }
+
+export function sortPics(pictures,direction) {
+  /*
+  console.log(pictures)
+  console.log(pictures[0].user.username)
+  //pictures.likes.count.sort()
+  return pictures.map(pic => {
+    pic.likes.count
+    function a - b
+  })
+ */
+ console.log(direction)
+  return pictures.sort(function(a,b) {
+    if (direction === "descending"){
+      //console.log(a.likes.count - b.likes.count)
+      return a.likes.count - b.likes.count
+    } else if (direction === "ascending") {
+      return b.likes.count - a.likes.count
+    } else {
+        return null
+    }
+  })
+}
+
+
+
+
+export function searchPics(pictures, searchTerm) {
+  //console.log('called serachpics')
+  let caption;
+  return pictures.filter(pic => {
+    if (pic.caption) {
+      //console.log(pic.caption.text)
+      caption = pic.caption.text
+    } else {
+      //console.log("no text")
+      caption = " "
+    }
+    let username = pic.user.username
+    //console.log(caption)
+    //console.log(username)
+    return (caption.includes(searchTerm) || username.includes(searchTerm))
+  })
+}

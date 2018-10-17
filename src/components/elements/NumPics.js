@@ -6,7 +6,7 @@ const PicCounter = (props) => {
 
   const {numMatches} = props
 
-
+//numMatches.length
 
 return(
 <p>

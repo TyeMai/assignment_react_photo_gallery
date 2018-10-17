@@ -15,9 +15,8 @@ const Select = (props) => {
     ))
 
 //<option>Please Select an Option</option>
-  console.log(props)
+  //console.log(props)
     return (
-
       <select className="filter_selector" {...restOfProps} onChange={props.handleFilterChosen}>
         {optionElements}
       </select>

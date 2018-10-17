@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import Select from './Select'
 
-const instagramData = ['normal', 'valencia', 'fat']
+
+
 
 class Form extends Component {
+
 
     constructor() {
       super()
@@ -13,9 +14,11 @@ class Form extends Component {
     }
 
   render() {
+  let  {inputType, name, onChangeInput, placeholder} = this.props
+
     return(
       <form>
-        <Select options={instagramData} name="input" value="fat"/>
+        <input name={name} type={inputType} onChange={onChangeInput} placeholder={placeholder} />
       </form>
     )
   }

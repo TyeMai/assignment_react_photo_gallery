@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -28,9 +28,10 @@
 }
 
 .pictures {
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr) ;
-  grid-template-rows:repeat(auto-fit, 1fr);
+  grid-template-columns: repeat(3, 30vw) ;
+  grid-template-rows: repeat(auto-fit, 1fr) [last-line];
   grid-column-ga: 20px;
   grid-template-area:
   ". p p p ."
@@ -40,14 +41,67 @@
   ". p p p ."
   ". p p p ."
   ". p p p .";
-  grid-auto-flo: dense;
+  grid-auto-flow: dense;
   justify-item: center;
+  padding-lef: 20px;
+  padding-righ: 20px;
 
 }
 
 .pictureAndInfo{
+  display: flex;
+  justify-conten: flex-start;
+  flex-flow: wrap column;
+  align-items: flex-start;
   grid-column-star: 2;
   grid-column-en: 5;
   grid-are: p;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
+.bk-btn{
+  display: flex;
+  grid-column-star: 1;
+  justify-content: center;
+  grid-row-star: last-line;
+}
+
+.fwd-btn{
+  display: flex;
+  justify-content: center;
+  grid-column-star: 3;
+  grid-row-en: last-line;
+  background-colo: pink;
+
+}
+
+.sort-button {
+  grid-ro: -1;
+}
+
+.inputGroup {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.fwd{
+  display: flex;
+  grid-column-star: 1;
+  justify-content: center;
+  grid-column-start: 3
+}
+
+.bk{
+  display: flex;
+  grid-column-star: 1;
+  justify-content: center;
+  grid-column-start: 1
 }
